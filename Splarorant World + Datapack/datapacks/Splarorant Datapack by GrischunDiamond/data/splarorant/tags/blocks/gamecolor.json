@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+      "minecraft:purple_wool",
+      "minecraft:blue_wool",
+      "minecraft:light_blue_wool",
+      "minecraft:yellow_wool",
+      "minecraft:red_wool",
+      "minecraft:pink_wool"
+
+    ]
+  }

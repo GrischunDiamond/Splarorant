@@ -1,0 +1,6 @@
+summon item_frame ~ ~ ~ {NoGravity:1b,Facing:1b,Invulnerable:1b,Invisible:1b,Fixed:1b,Tags:["splashbomb"],Item:{id:"minecraft:item_frame",Count:1b,tag:{CustomModelData:111111}}}
+summon item_frame ~ ~ ~ {NoGravity:1b,Facing:1b,Invulnerable:1b,Invisible:1b,Fixed:1b,Tags:["splashbomb"],Item:{id:"minecraft:item_frame",Count:1b,tag:{CustomModelData:211111}}}
+summon item_frame ~ ~ ~ {NoGravity:1b,Facing:1b,Invulnerable:1b,Invisible:1b,Fixed:1b,Tags:["splashbomb"],Item:{id:"minecraft:item_frame",Count:1b,tag:{CustomModelData:341111}}}
+summon item_frame ~ ~ ~ {NoGravity:1b,Facing:1b,Invulnerable:1b,Invisible:1b,Fixed:1b,Tags:["splashbomb"],Item:{id:"minecraft:item_frame",Count:1b,tag:{CustomModelData:114511}}}
+summon item_frame ~ ~ ~ {NoGravity:1b,Facing:1b,Invulnerable:1b,Invisible:1b,Fixed:1b,Tags:["splashbomb"],Item:{id:"minecraft:item_frame",Count:1b,tag:{CustomModelData:167111}}}
+summon item_frame ~ ~ ~ {NoGravity:1b,Facing:1b,Invulnerable:1b,Invisible:1b,Fixed:1b,Tags:["splashbomb"],Item:{id:"minecraft:item_frame",Count:1b,tag:{CustomModelData:116711}}}

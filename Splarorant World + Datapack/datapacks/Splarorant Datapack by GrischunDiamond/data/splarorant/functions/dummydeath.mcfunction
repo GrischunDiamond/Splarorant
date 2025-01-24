@@ -1,0 +1,1 @@
+# wait with a 3 second schedule 3 Seconds and then respawn the dummy where above a invisible chicken with custom tag is no dummy

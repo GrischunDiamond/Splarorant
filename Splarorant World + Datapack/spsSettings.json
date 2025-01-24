@@ -1,0 +1,14 @@
+{
+  "gameType": "ADVENTURE",
+  "difficulty": "PEACEFUL",
+  "cheats": true,
+  "invited": [
+    "00eef3ab-c5c4-46e6-a624-1420784820ca",
+    "ffedc5b5-3bb1-4f95-ad60-60efe53431a1",
+    "510b8a2e-4ee3-44ee-8c34-f82ba8138543"
+  ],
+  "shareResourcePack": false,
+  "oppedPlayers": [
+    "510b8a2e-4ee3-44ee-8c34-f82ba8138543"
+  ]
+}
