@@ -4,7 +4,7 @@ function splarorant:second
 function splarorant:bulletremove
 function splarorant:blockunder
 function splarorant:2ticks
-tp @a 0 0 0 90 0
+#tp @a 0 0 0 90 0
 time set day
 weather clear
 

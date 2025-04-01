@@ -201,6 +201,7 @@ execute as @a if score @s bombdamage matches 5 run damage @s 10
 execute as @a if score @s bombdamage matches 10 run damage @s 12
 scoreboard players reset @a bombdamage
 
+
 execute as @e[type=item,nbt={Item:{id:"minecraft:trident",tag:{splashbomb:1b}}}] run kill @s
 
 
