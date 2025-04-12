@@ -1,2 +1,3 @@
 give @s carrot_on_a_stick{display:{Name:'{"text":"Inkblaster","color":"blue","bold":true}'},Unbreakable:1b,CustomModelData:1,inkblaster:1b,Enchantments:[{}]} 1
 give @s trident{display:{Name:'{"text":"Splash Bomb","color":"dark_green","bold":true}'},CustomModelData:1,splashbomb:1b,Enchantments:[{}]} 1
+give @s chainmail_chestplate{display:{Name:'{"text":"Invulnerable Armor","color":"gray","bold":true}'},invulnerablearmor:1b,Enchantments:[{}]} 1

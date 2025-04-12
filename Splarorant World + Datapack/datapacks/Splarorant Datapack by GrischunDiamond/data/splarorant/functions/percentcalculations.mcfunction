@@ -13,7 +13,9 @@ scoreboard players operation @s team2percent *= @s team2blocks
 scoreboard players set @s geteiltmillion 1000000
 scoreboard players operation @s team2percent /= @s geteiltmillion
 
-
+# Fehlendes 1 Prozent addieren
+execute if score @s team1percent < @s team2percent at @s run scoreboard players add @s team2percent 1 
+execute if score @s team1percent > @s team2percent at @s run scoreboard players add @s team1percent 1 
 
 
 # Sicherheit Prüfung
