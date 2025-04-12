@@ -39,6 +39,7 @@ scoreboard objectives add sneaktimer minecraft.custom:minecraft.sneak_time
 scoreboard objectives add gamedeath deathCount
 scoreboard objectives add bombtimer dummy
 scoreboard objectives add bombdamage dummy
+scoreboard objectives add ultimatecounter dummy
 
 
 scoreboard objectives add Spawn trigger
@@ -71,7 +72,7 @@ team modify Owner prefix [{"text":"[","color":"dark_blue"},{"text":"OWNER","colo
 team add Team
 team modify Team color dark_green
 team modify Team prefix [{"text":"[","color":"dark_green"},{"text":"TEAM","color":"green"},{"text":"] ","color":"dark_green"}]
-team add Admin 
+team add Admin
 team modify Admin color dark_red
 team modify Admin prefix [{"text":"[","color":"dark_red"},{"text":"ADMIN","color":"red"},{"text":"] ","color":"dark_red"}]
 team add Develop1
