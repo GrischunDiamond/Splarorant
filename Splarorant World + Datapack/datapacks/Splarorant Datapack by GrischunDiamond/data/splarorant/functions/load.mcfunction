@@ -1,6 +1,7 @@
 tellraw @p {"text":"Splarorant Datapack - Loaded!","bold":true,"color":"dark_blue"}
 function splarorant:maptimer
 function splarorant:second
+function splarorant:20secondtimer
 function splarorant:bulletremove
 function splarorant:blockunder
 function splarorant:2ticks

@@ -68,8 +68,3 @@ execute as @e[name="port mackerel",scores={3secondtimer=-1}] run bossbar set tim
 execute as @e[name="port mackerel",scores={3secondtimer=-1}] at @s run scoreboard players set @s 10secondtimer 180
 execute as @e[name="port mackerel",scores={3secondtimer=-1}] at @s run scoreboard players set @s Timer 0
 execute as @e[name="port mackerel",scores={3secondtimer=-1}] run bossbar set time:portmackerel visible true
-
-
-
-
-
