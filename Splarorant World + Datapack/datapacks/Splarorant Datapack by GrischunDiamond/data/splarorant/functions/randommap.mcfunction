@@ -1,4 +1,4 @@
-execute as @e[type=minecraft:armor_stand,name="randommap"] store result score @s randommap run random value 1..3
+execute as @e[type=minecraft:armor_stand,name="randommap"] store result score @s randommap run random value 1..6
 
 execute if entity @e[scores={randommap=1},type=armor_stand] run function splarorant:map1
 execute if entity @e[scores={randommap=2},type=armor_stand] run function splarorant:map2
