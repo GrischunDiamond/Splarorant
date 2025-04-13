@@ -16,6 +16,12 @@ execute if entity @a[scores={team_organisation_random=2}] run execute if entity 
 execute positioned -5 -1 8 as @a[distance=2..] run fill -5 -1 8 -6 0 8 minecraft:iron_bars
 execute positioned -5 -1 8 as @a[distance=..2,tag=OPRechte,] run fill -5 -1 8 -6 0 8 minecraft:air
 
+# TRIGGER HELP
+execute as @a[scores={Help=1..}] at @s run function splarorant:help
+scoreboard players reset @a Help
+scoreboard players enable @a Help
+
+
 # TRIGGER SPAWN
 execute as @a[scores={Spawn=1..}] run tp @s 0 0 0 90 0.0 
 execute as @a[scores={Spawn=1..}] at @s run function splarorant:backtolobby

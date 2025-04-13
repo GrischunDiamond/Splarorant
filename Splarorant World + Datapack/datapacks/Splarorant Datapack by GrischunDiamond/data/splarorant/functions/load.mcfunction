@@ -53,6 +53,7 @@ scoreboard objectives add Commandbook trigger
 scoreboard objectives add Kill trigger
 scoreboard objectives add MapResetManual trigger
 scoreboard objectives add Weapons trigger
+scoreboard objectives add Help trigger
 
 scoreboard objectives add rightclick minecraft.used:minecraft.carrot_on_a_stick
 
