@@ -19,5 +19,5 @@ execute as @a[scores={chainarmor=..1}] at @s run clear @s chainmail_leggings{Unb
 execute as @a[scores={chainarmor=..1}] at @s run clear @s chainmail_boots{Unbreakable:1b,Enchantments:[{id:"minecraft:binding_curse"}]}
 execute as @a[scores={chainarmor=..1}] at @s run effect clear health_boost
 
-execute as @a[scores={chainarmor=1..}] run effect give @s health_boost infinite
+execute as @a[scores={chainarmor=1..}] run effect give @s health_boost 1 5
 
