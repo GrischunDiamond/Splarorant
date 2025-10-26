@@ -225,7 +225,8 @@ scoreboard players reset @a bombdamage
 execute as @e[type=item,nbt={Item:{id:"minecraft:trident",tag:{splashbomb:1b}}}] run kill @s
 
 
-
-
+# Detect Dummy Damage
+execute as @e[type=armor_stand,scores={getdamage=1..}] at @s run say I am getting hit
+scoreboard players reset @e getdamage
 
 
