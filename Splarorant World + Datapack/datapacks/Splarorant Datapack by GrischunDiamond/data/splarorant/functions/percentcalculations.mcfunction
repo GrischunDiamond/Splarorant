@@ -13,11 +13,13 @@ scoreboard players operation @s team2percent *= @s team2blocks
 scoreboard players set @s geteiltmillion 1000000
 scoreboard players operation @s team2percent /= @s geteiltmillion
 
-
+# Fehlendes 1 Prozent addieren
+execute if score @s team1percent < @s team2percent at @s run scoreboard players add @s team2percent 1 
+execute if score @s team1percent > @s team2percent at @s run scoreboard players add @s team1percent 1 
 
 
 # Sicherheit Prüfung
-execute at @s run tell @a "Ich habe die Prozenzahlen ausgerechnet"
+execute at @s run tell @a "Ich habe die Prozentzahlen ausgerechnet"
 
 # Block Statistik
 execute if entity @s[name="kelp dome"] run tellraw @a[tag=kelpdome] ["",{"text":"Map Statistik","bold":true,"color":"dark_aqua"},"\n","\n",{"text":"Team 1: ","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"team1percent"},"bold":true,"color":"aqua"},{"text":"% ","bold":true,"color":"aqua"},{"text":"(","color":"aqua"},{"score":{"name":"@s","objective":"team1blocks"},"color":"aqua"},{"text":" Blöcke)","color":"aqua"},"\n","\n",{"text":"Team 2:  ","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"team2percent"},"bold":true,"color":"aqua"},{"text":"% ","bold":true,"color":"aqua"},{"text":"(","color":"aqua"},{"score":{"name":"@s","objective":"team2blocks"},"color":"aqua"},{"text":" Blöcke)","color":"aqua"}]

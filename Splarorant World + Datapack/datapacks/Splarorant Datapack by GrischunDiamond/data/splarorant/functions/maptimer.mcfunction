@@ -85,7 +85,5 @@ tag @a remove MatchmakingRandom
 tag @a remove MatchmakingTeams
 
 
-
-
-
+execute as @e[type=arrow] at @s if entity @e[type=armor_stand,distance=..1,sort=nearest,limit=1] run say An arrow hit an armor stand!
 

@@ -1,4 +1,4 @@
-tp @s ^ ^ ^0.5 
+tp @s ^ ^ ^0.5
 
 particle crit ~ ~ ~ 0 0 0 0 1 force
 

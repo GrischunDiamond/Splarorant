@@ -1,10 +1,11 @@
 tellraw @p {"text":"Splarorant Datapack - Loaded!","bold":true,"color":"dark_blue"}
 function splarorant:maptimer
 function splarorant:second
+function splarorant:20secondtimer
 function splarorant:bulletremove
 function splarorant:blockunder
 function splarorant:2ticks
-tp @a 0 0 0 90 0
+#tp @a 0 0 0 90 0
 time set day
 weather clear
 
@@ -39,6 +40,10 @@ scoreboard objectives add sneaktimer minecraft.custom:minecraft.sneak_time
 scoreboard objectives add gamedeath deathCount
 scoreboard objectives add bombtimer dummy
 scoreboard objectives add bombdamage dummy
+scoreboard objectives add ultimatecounter dummy
+scoreboard objectives add chainarmor dummy
+scoreboard objectives add randomultimate dummy
+scoreboard objectives add getdamage minecraft.custom:minecraft.damage_dealt
 
 
 scoreboard objectives add Spawn trigger
@@ -49,6 +54,7 @@ scoreboard objectives add Commandbook trigger
 scoreboard objectives add Kill trigger
 scoreboard objectives add MapResetManual trigger
 scoreboard objectives add Weapons trigger
+scoreboard objectives add Help trigger
 
 scoreboard objectives add rightclick minecraft.used:minecraft.carrot_on_a_stick
 
@@ -71,7 +77,7 @@ team modify Owner prefix [{"text":"[","color":"dark_blue"},{"text":"OWNER","colo
 team add Team
 team modify Team color dark_green
 team modify Team prefix [{"text":"[","color":"dark_green"},{"text":"TEAM","color":"green"},{"text":"] ","color":"dark_green"}]
-team add Admin 
+team add Admin
 team modify Admin color dark_red
 team modify Admin prefix [{"text":"[","color":"dark_red"},{"text":"ADMIN","color":"red"},{"text":"] ","color":"dark_red"}]
 team add Develop1

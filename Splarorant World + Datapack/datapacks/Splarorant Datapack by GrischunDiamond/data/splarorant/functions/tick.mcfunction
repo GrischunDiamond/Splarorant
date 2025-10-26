@@ -16,6 +16,12 @@ execute if entity @a[scores={team_organisation_random=2}] run execute if entity 
 execute positioned -5 -1 8 as @a[distance=2..] run fill -5 -1 8 -6 0 8 minecraft:iron_bars
 execute positioned -5 -1 8 as @a[distance=..2,tag=OPRechte,] run fill -5 -1 8 -6 0 8 minecraft:air
 
+# TRIGGER HELP
+execute as @a[scores={Help=1..}] at @s run function splarorant:help
+scoreboard players reset @a Help
+scoreboard players enable @a Help
+
+
 # TRIGGER SPAWN
 execute as @a[scores={Spawn=1..}] run tp @s 0 0 0 90 0.0 
 execute as @a[scores={Spawn=1..}] at @s run function splarorant:backtolobby
@@ -49,7 +55,7 @@ scoreboard players enable @a Kill
 
 # TRIGGER MAPS
 execute as @a[scores={MapVisit=1..}] run tellraw @s ["",{"text":"Map Visit:","bold":true,"color":"aqua"},"\n","\n",{"text":"[Kelp Dome]","color":"#3BABAB","clickEvent":{"action":"run_command","value":"/scoreboard players set @s MapVisiterLocation 1"}},"\n",{"text":"[Walleye Warehouse]","color":"#3BABAB","clickEvent":{"action":"run_command","value":"/scoreboard players set @s MapVisiterLocation 2"}},"\n",{"text":"[Flounder Heights]","color":"#3BABAB","clickEvent":{"action":"run_command","value":"/scoreboard players set @s MapVisiterLocation 3"}},"\n",{"text":"[Trainstation]","color":"#3BABAB","clickEvent":{"action":"run_command","value":"/scoreboard players set @s MapVisiterLocation 4"}},"\n",{"text":"[Moray Towers]","color":"#3BABAB","clickEvent":{"action":"run_command","value":"/scoreboard players set @s MapVisiterLocation 5"}},"\n",{"text":"[Port Mackerel]","color":"#3BABAB","clickEvent":{"action":"run_command","value":"/scoreboard players set @s MapVisiterLocation 6"}}]
-execute as @a[scores={MapVisit=1..}] run item replace entity @s hotbar.8 with carrot_on_a_stick{display:{Name:'{"text":"EXIT","color":"dark_red","bold":true}'},CustomModelData:213823,exitmaps:1b} 1
+execute as @a[scores={MapVisit=1..}] run item replace entity @s hotbar.8 with carrot_on_a_stick{display:{Name:'{"text":"EXIT","color":"dark_red","bold":true}'},CustomModelData:2,exitmaps:1b} 1
 execute as @a[scores={MapVisit=1..}] run tag @s add MapVisiter
 scoreboard players reset @a MapVisit
 scoreboard players enable @a[tag=OPRechte] MapVisit
@@ -60,9 +66,23 @@ execute as @a[scores={MapVisiterLocation=1..}] run function splarorant:mapvisite
 # EXIT TO SPAWN AFTER TRIGGER SPAWN
 scoreboard objectives add ExitMaps minecraft.used:minecraft.carrot_on_a_stick
 execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{exitmaps:1b}}},scores={ExitMaps=1..}] at @s run tp @s 0 0 0 90 0.0 
-clear @a[scores={ExitMaps=1..}] carrot_on_a_stick{display:{Name:'{"text":"EXIT","color":"dark_red","bold":true}'},CustomModelData:213823,exitmaps:1b} 1
+clear @a[scores={ExitMaps=1..}] carrot_on_a_stick{display:{Name:'{"text":"EXIT","color":"dark_red","bold":true}'},CustomModelData:2,exitmaps:1b} 1
 tag @a[scores={ExitMaps=1..}] remove MapVisiter
 scoreboard players reset @a ExitMaps 
+
+# ULTIMATE WEAPONS
+execute as @a[scores={ultimatecounter=250..}] at @s run function splarorant:giveultimate
+execute as @a[scores={ultimatecounter=250..}] at @s run scoreboard players remove @s ultimatecounter 250
+
+# Invulnerable Chain Armor
+execute as @a[nbt={Inventory:[{Slot:102b,id:"minecraft:chainmail_chestplate",tag:{invulnerablearmor:1b}}]}] at @s run scoreboard players set @s chainarmor 10
+execute as @a[nbt={Inventory:[{Slot:102b,id:"minecraft:chainmail_chestplate",tag:{invulnerablearmor:1b}}]}] at @s run item replace entity @s armor.head with chainmail_helmet{Unbreakable:1b,Enchantments:[{id:"minecraft:binding_curse",lvl:1s}]} 1
+execute as @a[nbt={Inventory:[{Slot:102b,id:"minecraft:chainmail_chestplate",tag:{invulnerablearmor:1b}}]}] at @s run item replace entity @s armor.legs with chainmail_leggings{Unbreakable:1b,Enchantments:[{id:"minecraft:binding_curse",lvl:1s}]} 1
+execute as @a[nbt={Inventory:[{Slot:102b,id:"minecraft:chainmail_chestplate",tag:{invulnerablearmor:1b}}]}] at @s run item replace entity @s armor.feet with chainmail_boots{Unbreakable:1b,Enchantments:[{id:"minecraft:binding_curse",lvl:1s}]} 1
+execute as @a[nbt={Inventory:[{Slot:102b,id:"minecraft:chainmail_chestplate",tag:{invulnerablearmor:1b}}]}] at @s run item replace entity @s armor.chest with chainmail_chestplate{Unbreakable:1b,Enchantments:[{id:"minecraft:binding_curse",lvl:1s}]} 1
+
+
+
 
 # TRIGGER COMMANDBOOK
 execute as @a[scores={Commandbook=1..}] at @s run function splarorant:commandbook
@@ -177,12 +197,12 @@ execute as @e[name="port mackerel",scores={3secondtimer=-1}] run tag @a[tag=port
 
 
 # ACTIONBAR DISPLAYS INKBLASTERTANK
-execute if entity @e[name="kelp dome",scores={Timer=..179}] as @a[tag=kelpdome] at @s run title @s actionbar ["",{"text":"Inkblastertank: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"inkblastertank"},"bold":true,"color":"dark_aqua"},{"text":"]","bold":true,"color":"dark_aqua"}]
-execute if entity @e[name="walleye warehouse",scores={Timer=..179}] as @a[tag=walleyewarehouse] at @s run title @s actionbar ["",{"text":"Inkblastertank: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"inkblastertank"},"bold":true,"color":"dark_aqua"},{"text":"]","bold":true,"color":"dark_aqua"}]
-execute if entity @e[name="flounder heights",scores={Timer=..179}] as @a[tag=flounderheights] at @s run title @s actionbar ["",{"text":"Inkblastertank: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"inkblastertank"},"bold":true,"color":"dark_aqua"},{"text":"]","bold":true,"color":"dark_aqua"}]
-execute if entity @e[name="trainstation",scores={Timer=..179}] as @a[tag=trainstation] at @s run title @s actionbar ["",{"text":"Inkblastertank: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"inkblastertank"},"bold":true,"color":"dark_aqua"},{"text":"]","bold":true,"color":"dark_aqua"}]
-execute if entity @e[name="moray towers",scores={Timer=..179}] as @a[tag=moraytowers] at @s run title @s actionbar ["",{"text":"Inkblastertank: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"inkblastertank"},"bold":true,"color":"dark_aqua"},{"text":"]","bold":true,"color":"dark_aqua"}]
-execute if entity @e[name="port mackerel",scores={Timer=..179}] as @a[tag=portmackerel] at @s run title @s actionbar ["",{"text":"Inkblastertank: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"inkblastertank"},"bold":true,"color":"dark_aqua"},{"text":"]","bold":true,"color":"dark_aqua"}]
+execute if entity @e[name="kelp dome",scores={Timer=..179}] as @a[tag=kelpdome] at @s run title @s actionbar ["",{"text":"Inkblastertank: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"inkblastertank"},"bold":true,"color":"dark_aqua"},{"text":"] ","bold":true,"color":"dark_aqua"},{"text":"Ulti: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"ultimatecounter"},"bold":true,"color":"dark_aqua"},{"text":"] ","bold":true,"color":"dark_aqua"}]
+execute if entity @e[name="walleye warehouse",scores={Timer=..179}] as @a[tag=walleyewarehouse] at @s run title @s actionbar ["",{"text":"Inkblastertank: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"inkblastertank"},"bold":true,"color":"dark_aqua"},{"text":"] ","bold":true,"color":"dark_aqua"},{"text":"Ulti: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"ultimatecounter"},"bold":true,"color":"dark_aqua"},{"text":"] ","bold":true,"color":"dark_aqua"}]
+execute if entity @e[name="flounder heights",scores={Timer=..179}] as @a[tag=flounderheights] at @s run title @s actionbar ["",{"text":"Inkblastertank: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"inkblastertank"},"bold":true,"color":"dark_aqua"},{"text":"] ","bold":true,"color":"dark_aqua"},{"text":"Ulti: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"ultimatecounter"},"bold":true,"color":"dark_aqua"},{"text":"] ","bold":true,"color":"dark_aqua"}]
+execute if entity @e[name="trainstation",scores={Timer=..179}] as @a[tag=trainstation] at @s run title @s actionbar ["",{"text":"Inkblastertank: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"inkblastertank"},"bold":true,"color":"dark_aqua"},{"text":"] ","bold":true,"color":"dark_aqua"},{"text":"Ulti: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"ultimatecounter"},"bold":true,"color":"dark_aqua"},{"text":"] ","bold":true,"color":"dark_aqua"}]
+execute if entity @e[name="moray towers",scores={Timer=..179}] as @a[tag=moraytowers] at @s run title @s actionbar ["",{"text":"Inkblastertank: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"inkblastertank"},"bold":true,"color":"dark_aqua"},{"text":"] ","bold":true,"color":"dark_aqua"},{"text":"Ulti: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"ultimatecounter"},"bold":true,"color":"dark_aqua"},{"text":"] ","bold":true,"color":"dark_aqua"}]
+execute if entity @e[name="port mackerel",scores={Timer=..179}] as @a[tag=portmackerel] at @s run title @s actionbar ["",{"text":"Inkblastertank: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"inkblastertank"},"bold":true,"color":"dark_aqua"},{"text":"] ","bold":true,"color":"dark_aqua"},{"text":"Ulti: ","bold":true,"color":"aqua"},{"text":"[","bold":true,"color":"dark_aqua"},{"score":{"name":"@s","objective":"ultimatecounter"},"bold":true,"color":"dark_aqua"},{"text":"] ","bold":true,"color":"dark_aqua"}]
 
 # SPLARORANT BOMB
 execute as @e[type=trident,tag=!teamcolorbombstrident] at @s run function splarorant:teamcolorbombstrident
@@ -201,10 +221,12 @@ execute as @a if score @s bombdamage matches 5 run damage @s 10
 execute as @a if score @s bombdamage matches 10 run damage @s 12
 scoreboard players reset @a bombdamage
 
+
 execute as @e[type=item,nbt={Item:{id:"minecraft:trident",tag:{splashbomb:1b}}}] run kill @s
 
 
-
-
+# Detect Dummy Damage
+execute as @e[type=armor_stand,scores={getdamage=1..}] at @s run say I am getting hit
+scoreboard players reset @e getdamage
 
 
