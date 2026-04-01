@@ -41,6 +41,12 @@ sudo apt update
 
 # If docker is not running(Check with "docker ps")
 sudo systemctl start docker
+
+
+# Install Docker Tools
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+
 ```
 
 
