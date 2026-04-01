@@ -65,4 +65,13 @@ git config --global user.email johndoe@example.com
 ### 2. MC  Server Software Installation
 
 ### 3. Download Splarorant Files
+Download Splorarant Media Files
+```bash
+# Create Folder Setup
+mkdir Splarorant
+cd Splarorant
 
+# Download Files
+git clone https://github.com/GrischunDiamond/Splarorant.git
+
+```
