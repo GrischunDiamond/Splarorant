@@ -44,6 +44,7 @@ scoreboard objectives add ultimatecounter dummy
 scoreboard objectives add chainarmor dummy
 scoreboard objectives add randomultimate dummy
 scoreboard objectives add getdamage minecraft.custom:minecraft.damage_dealt
+scoreboard objectives add dummyhealth dummy
 
 
 scoreboard objectives add Spawn trigger

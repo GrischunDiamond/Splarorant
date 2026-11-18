@@ -173,7 +173,7 @@ scoreboard players reset @e[tag=bullet] bulletspread
 
 execute as @e[tag=bullet,tag=motion_added,nbt={inGround:1b}] at @s unless block ~ ~-1 ~ air unless block ~ ~-1 ~ #splarorant:ink_colouring unless entity @p[tag=spawn,distance=..6] run function splarorant:inkcolouring
 
-execute at @e[tag=bullet,tag=motion_added,tag=teamcolorbullet] run tp @e[type=armor_stand,distance=..0.4] @s
+#execute at @e[tag=bullet,tag=motion_added,tag=teamcolorbullet] run tp @e[type=armor_stand,distance=..0.4] @s
 # 3SECOND TIMER
 execute as @e[name="kelp dome",scores={3secondtimer=-1}] run function splarorant:3secondtimer
 execute as @e[name="kelp dome",scores={3secondtimer=-1}] at @s run scoreboard players reset @s 3secondtimer
@@ -225,8 +225,5 @@ scoreboard players reset @a bombdamage
 execute as @e[type=item,nbt={Item:{id:"minecraft:trident",tag:{splashbomb:1b}}}] run kill @s
 
 
-# Detect Dummy Damage
-execute as @e[type=armor_stand,scores={getdamage=1..}] at @s run say I am getting hit
-scoreboard players reset @e getdamage
 
 

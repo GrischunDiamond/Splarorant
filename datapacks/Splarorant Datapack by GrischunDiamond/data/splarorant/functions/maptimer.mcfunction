@@ -85,5 +85,10 @@ tag @a remove MatchmakingRandom
 tag @a remove MatchmakingTeams
 
 
-execute as @e[type=arrow] at @s if entity @e[type=armor_stand,distance=..1,sort=nearest,limit=1] run say An arrow hit an armor stand!
+# DUMMY
+execute as @e[type=arrow] at @s if entity @e[type=armor_stand,distance=..1,sort=nearest,limit=1] run scoreboard players remove @e[type=armor_stand, sort=nearest, limit=1] dummyhealth 1
+
+# Detect Dummy Damage
+execute as @e[type=armor_stand,tag=dummy,scores={dummyhealth=..1}] at @s run particle minecraft:poof ~ ~1 ~ 0.3 0.5 0.3 0.1 30
+execute as @e[type=armor_stand,tag=dummy,scores={dummyhealth=..1}] at @s run kill @s
 
