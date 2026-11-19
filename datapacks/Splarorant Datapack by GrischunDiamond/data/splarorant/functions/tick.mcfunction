@@ -163,7 +163,7 @@ execute store result bossbar time:portmackerel value run scoreboard players get 
 #execute as @a[tag=!letsgo] at @s run bossbar set time:portmackerel players
 
 # WEAPONS
-execute as @a[scores={rightclick=1..}] at @s anchored eyes run function splarorant:inkblastershot
+execute as @a[scores={rightclick=1..}] unless score @s sneaktimer matches 1.. at @s anchored eyes run function splarorant:inkblastershot
 scoreboard players reset @a rightclick
 
 execute as @e[tag=bullet,tag=!motion_added] at @s rotated as @p run function splarorant:teamcolorbullet
